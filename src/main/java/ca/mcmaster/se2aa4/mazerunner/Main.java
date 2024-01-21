@@ -17,9 +17,10 @@ public class Main {
 
         Configuration config = new Configuration();
         config.processInput(args);
-        MazeImporter imported_maze = new MazeImporter(config.maze_file());
+        MazeImporter imported_maze = new MazeImporter(config.getMazeFile());
+        imported_maze.importMaze();
         Maze maze = imported_maze.getMaze();
-        MazePathChecker pathChecker = new MazePathChecker(maze, config.path_sequence());
+        MazePathChecker pathChecker = new MazePathChecker(maze, config.getPathSequence());
         MazeSolver solver = new MazeSolver(maze);
 
     }
