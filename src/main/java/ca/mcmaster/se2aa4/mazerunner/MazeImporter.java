@@ -32,7 +32,6 @@ public class MazeImporter {
                 for (int idx = 0; idx < line.length(); idx++) {
                     if (line.charAt(idx) == '#') {
                         logger.trace("WALL ");
-                        
                     } else if (line.charAt(idx) == ' ') {
                         logger.trace("PASS ");
                     }

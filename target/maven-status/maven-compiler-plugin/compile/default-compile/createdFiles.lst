@@ -1,6 +1,8 @@
 ca/mcmaster/se2aa4/mazerunner/Configuration.class
+Runner$Direction.class
 ca/mcmaster/se2aa4/mazerunner/MazePathChecker.class
 ca/mcmaster/se2aa4/mazerunner/Maze.class
 ca/mcmaster/se2aa4/mazerunner/MazeSolver.class
 ca/mcmaster/se2aa4/mazerunner/MazeImporter.class
 ca/mcmaster/se2aa4/mazerunner/Main.class
+Runner.class
