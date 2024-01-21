@@ -26,15 +26,23 @@ public class Configuration {
 
         logger.info("** Starting Maze Runner");
         logger.info("**** Reading Command-Line Arguments");
+
         Options options = new Options();
-        options.addOption("i", "input", true, "Filename");
+        options.addOption("i", "input", true, "Maze Filename");
+        options.addOption("p", "path", true, "Path Sequence");
+
         CommandLineParser parser = new DefaultParser();
+
         try {
+
             CommandLine cmd = parser.parse(options, args);
             String file = cmd.getOptionValue("i", "./examples/straight.maz.txt");
+            String path = cmd.getOptionValue("p", "");
+
             logger.info("**** Reading the maze from file " + file);
             BufferedReader reader = new BufferedReader(new FileReader(file));
             String line;
+
             while ((line = reader.readLine()) != null) {
                 for (int idx = 0; idx < line.length(); idx++) {
                     if (line.charAt(idx) == '#') {
@@ -45,9 +53,13 @@ public class Configuration {
                 }
                 logger.info(System.lineSeparator());
             }
+
         } catch(Exception e) {
+            
             logger.error("/!\\ An error has occured /!\\");
+
         }
+
         logger.info("**** Computing path");
         logger.debug("PATH NOT COMPUTED");
         logger.info("** End of MazeRunner");
