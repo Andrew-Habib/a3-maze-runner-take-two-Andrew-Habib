@@ -21,6 +21,8 @@ public class Main {
         imported_maze.importMaze();
         Maze maze = imported_maze.getMaze();
         MazePathChecker pathChecker = new MazePathChecker(maze, config.getPathSequence());
+        pathChecker.processPath();
+        pathChecker.checkCorrect();
         MazeSolver solver = new MazeSolver(maze);
 
     }

@@ -1,12 +1,14 @@
-public class Runner {
+package ca.mcmaster.se2aa4.mazerunner;
 
-    private int x = 0;
-    private int y = 0;
-    private Direction direction = Direction.EAST;
+public class Runner {
 
     public enum Direction {
         NORTH, WEST, EAST, SOUTH
     }
+
+    private int x = 0;
+    private int y = 0;
+    private Direction direction = Direction.EAST;
 
     public Runner(int x, int y, Direction dir) {
         this.x = x;
@@ -25,6 +27,12 @@ public class Runner {
             this.x = this.x - 1;
         }
     }
+
+    public void setXLocation(int x) { this.x = x; }
+
+    public void setYLocation(int y) { this.y = y; }
+
+    public void setDirection(Direction dir) { this.direction = dir; }
 
     public int getXLocation() { return this.x; }
 
