@@ -15,9 +15,11 @@ public class Configuration {
     
     private String maze_file = "./examples/straight.maz.txt";
     private String path_sequence = "";
+    private boolean path_given = false;
 
     public String getMazeFile () { return this.maze_file; }
     public String getPathSequence () { return this.path_sequence; }
+    public boolean pathGiven () { return this.path_given; } 
 
     public void processInput(String[] args) {
 
@@ -37,8 +39,14 @@ public class Configuration {
             String path = cmd.getOptionValue("p", "");
 
             this.maze_file = file;
-            this.path_sequence = path;
 
+            if(cmd.hasOption('p')) {
+                this.path_given = true;
+                this.path_sequence = path;
+            } else {
+                this.path_given = false;
+            }    
+            
         } catch(Exception e) {
             
             logger.error("/!\\ An error has occured while processing input /!\\");

@@ -20,10 +20,15 @@ public class Main {
         MazeImporter imported_maze = new MazeImporter(config.getMazeFile());
         imported_maze.importMaze();
         Maze maze = imported_maze.getMaze();
-        MazePathChecker pathChecker = new MazePathChecker(maze, config.getPathSequence());
-        pathChecker.processPath();
-        pathChecker.checkCorrect();
-        MazeSolver solver = new MazeSolver(maze);
+        
+        if (config.pathGiven()) {
+            MazePathChecker pathChecker = new MazePathChecker(maze, config.getPathSequence());
+            pathChecker.processPath();
+            pathChecker.checkCorrect();
+        } else {
+            MazeSolver solver = new MazeSolver(maze);
+            solver.solve();
+        }
 
     }
     
