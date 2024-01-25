@@ -28,6 +28,30 @@ public class Runner {
         }
     }
 
+    public void turnLeft() {
+        if (this.direction == Direction.NORTH) {
+            this.direction = Direction.WEST;
+        } else if (this.direction == Direction.SOUTH) {
+            this.direction = Direction.EAST;
+        } else if (this.direction == Direction.EAST) {
+            this.direction = Direction.NORTH;
+        } else {
+            this.direction = Direction.SOUTH;
+        }
+    }
+
+    public void turnRight() {
+        if (this.direction == Direction.NORTH) {
+            this.direction = Direction.EAST;
+        } else if (this.direction == Direction.SOUTH) {
+            this.direction = Direction.WEST;
+        } else if (this.direction == Direction.EAST) {
+            this.direction = Direction.SOUTH;
+        } else {
+            this.direction = Direction.NORTH;
+        }
+    }
+
     public void setXLocation(int x) { this.x = x; }
 
     public void setYLocation(int y) { this.y = y; }
