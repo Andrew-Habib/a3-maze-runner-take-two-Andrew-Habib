@@ -2,10 +2,6 @@ package ca.mcmaster.se2aa4.mazerunner;
 
 public class Runner {
 
-    public enum Direction {
-        NORTH, WEST, EAST, SOUTH
-    }
-
     private int x = 0;
     private int y = 0;
     private Direction direction = Direction.EAST;

@@ -3,7 +3,7 @@ package ca.mcmaster.se2aa4.mazerunner;
 public class MazeSolver {
 
     private Maze maze = new Maze();
-    private Runner run_solver = new Runner(0, 0, Runner.Direction.EAST);
+    private Runner run_solver = new Runner(0, 0, Direction.EAST);
 
     public void solve() {
 
@@ -20,7 +20,7 @@ public class MazeSolver {
 
     public MazeSolver(Maze maze) {
         this.maze = maze;
-        this.run_solver = new Runner(maze.startX(), maze.startY(), Runner.Direction.EAST);
+        this.run_solver = new Runner(maze.startX(), maze.startY(), Direction.EAST);
     }
 
 }

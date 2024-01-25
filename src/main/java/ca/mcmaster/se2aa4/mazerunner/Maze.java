@@ -4,6 +4,10 @@ public class Maze {
 
     private String[][] tiles = new String[5][5];
 
+    public enum Tile {
+        
+    }
+
     public Maze() {
         this.tiles = new String[][] {
             {"#", "#", "#", "#", "#"}, 

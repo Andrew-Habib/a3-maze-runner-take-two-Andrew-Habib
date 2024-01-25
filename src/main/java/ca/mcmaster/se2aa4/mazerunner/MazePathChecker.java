@@ -4,7 +4,7 @@ public class MazePathChecker {
 
     private Maze maze = new Maze();
     private String path_sequence = "";
-    private Runner run_checker = new Runner(0, 0, Runner.Direction.EAST);
+    private Runner run_checker = new Runner(0, 0, Direction.EAST);
 
     public void processPath() {
         String num = "0";
@@ -37,7 +37,7 @@ public class MazePathChecker {
     public MazePathChecker(Maze maze, String path) {
         this.maze = maze;
         this.path_sequence = path;
-        this.run_checker = new Runner(maze.startX(), maze.startY(), Runner.Direction.EAST);
+        this.run_checker = new Runner(maze.startX(), maze.startY(), Direction.EAST);
     }
 
 }
