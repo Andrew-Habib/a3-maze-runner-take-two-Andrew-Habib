@@ -2,20 +2,35 @@ package ca.mcmaster.se2aa4.mazerunner;
 
 public class MazePathChecker {
 
-    private Maze maze = new Maze();
-    private String path_sequence = "";
-    private Runner run_checker = new Runner(0, 0, Direction.EAST);
+    private Maze maze;
+    private String path_sequence;
+    private Runner runner;
+
+    private void setStartLeft() {
+
+        for (int row = 0; row < this.maze.getHeight() - 1; row++) {
+            if (this.maze.getTileAt(row, 0) == Tile.EMPTY) {
+                this.runner.setXLocation(0);
+                this.runner.setYLocation(row);
+                this.runner.setDirection(Direction.EAST);
+            }
+        }
+        
+    }
 
     public void processPath() {
         String num = "0";
+
+        this.setStartLeft();
+
         for (int i = 0; i < this.path_sequence.length(); i++) {
             if (Character.isDigit(this.path_sequence.charAt(i))) {
                 num = num + this.path_sequence.charAt(i);
             } else {
                 for (int j = 0; j < Integer.parseInt(num); j++) {
-                    if (this.run_checker.getXLocation() >= 0 && this.run_checker.getXLocation() < this.maze.endX()) {
+                    if (this.runner.getXLocation() >= 0 && this.runner.getXLocation() < this.maze.getWidth() - 1) {
                         if (this.path_sequence.charAt(i) == 'F') {
-                            run_checker.runForward();
+                            this.runner.runForward();
                         }
                     }
                 }
@@ -25,7 +40,7 @@ public class MazePathChecker {
     }
 
     public void checkCorrect() {
-        if (this.run_checker.getXLocation() == this.maze.endX() && this.run_checker.getYLocation() == this.maze.endY()) {
+        if (this.runner.getXLocation() == this.maze.getWidth() - 1) {
             System.out.println("correct path");
             
         } else {
@@ -37,7 +52,7 @@ public class MazePathChecker {
     public MazePathChecker(Maze maze, String path) {
         this.maze = maze;
         this.path_sequence = path;
-        this.run_checker = new Runner(maze.startX(), maze.startY(), Direction.EAST);
+        this.runner = new Runner(0, 0, Direction.EAST);
     }
 
 }
