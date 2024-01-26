@@ -20,7 +20,6 @@ public class MazeSolver {
     public void solve() {
 
         this.setStartLeft();
-
         String path = this.right_hand_algorithm();
         String canonical_path = this.canonicalForm(path);
         System.out.println(canonical_path);
