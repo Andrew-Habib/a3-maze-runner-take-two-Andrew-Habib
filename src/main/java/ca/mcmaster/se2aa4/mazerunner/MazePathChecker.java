@@ -9,7 +9,7 @@ public class MazePathChecker {
     private void setStartLeft() {
 
         for (int row = 0; row < this.maze.getHeight() - 1; row++) {
-            if (this.maze.getTileAt(row, 0) == Tile.EMPTY) {
+            if (this.maze.getTileAt(0, row) == Tile.EMPTY) {
                 this.runner.setXLocation(0);
                 this.runner.setYLocation(row);
                 this.runner.setDirection(Direction.EAST);
@@ -42,10 +42,8 @@ public class MazePathChecker {
     public void checkCorrect() {
         if (this.runner.getXLocation() == this.maze.getWidth() - 1) {
             System.out.println("correct path");
-            
         } else {
-            System.out.println("incorrect path");
-            
+            System.out.println("incorrect path");  
         }
     }
 

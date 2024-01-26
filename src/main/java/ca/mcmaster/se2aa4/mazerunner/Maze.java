@@ -18,8 +18,8 @@ public class Maze {
         return this.layout.length;
     }
 
-    public Tile getTileAt(int row, int col) {
-        return this.layout[row][col];
+    public Tile getTileAt(int x, int y) {
+        return this.layout[this.getHeight() - y - 1][x];
     }
 
 }
