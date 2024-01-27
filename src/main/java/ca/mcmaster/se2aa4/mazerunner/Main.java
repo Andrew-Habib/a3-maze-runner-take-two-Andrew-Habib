@@ -26,7 +26,7 @@ public class Main {
             pathChecker.processPath();
             pathChecker.checkCorrect();
         } else {
-            MazeSolver solver = new MazeSolver(maze);
+            RightHandMazeSolver solver = new RightHandMazeSolver(maze);
             solver.solve();
         }
 
