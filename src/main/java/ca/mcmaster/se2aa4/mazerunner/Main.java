@@ -26,8 +26,10 @@ public class Main {
             pathChecker.processPath();
             pathChecker.checkCorrect();
         } else {
-            RightHandMazeSolver solver = new RightHandMazeSolver(maze);
+            MazeSolver solver = new RightHandMazeSolver(maze);
+            solver.setStartDirection(Direction.WEST);
             solver.solve();
+            System.out.println(solver.getFactorizedForm());
         }
 
     }
