@@ -48,16 +48,28 @@ public class Runner {
         }
     }
 
-    public void setXLocation(int x) { this.x = x; }
+    public void setXLocation(int x) {
+        this.x = x;
+    }
 
-    public void setYLocation(int y) { this.y = y; }
+    public void setYLocation(int y) {
+        this.y = y;
+    }
 
-    public void setDirection(Direction dir) { this.direction = dir; }
+    public void setDirection(Direction dir) {
+        this.direction = dir;
+    }
 
-    public int getXLocation() { return this.x; }
+    public int getXLocation() {
+        return this.x;
+    }
 
-    public int getYLocation() { return this.y; }
+    public int getYLocation() {
+        return this.y;
+    }
 
-    public Direction getDirection() { return this.direction; }
+    public Direction getDirection() {
+        return this.direction;
+    }
 
 }
