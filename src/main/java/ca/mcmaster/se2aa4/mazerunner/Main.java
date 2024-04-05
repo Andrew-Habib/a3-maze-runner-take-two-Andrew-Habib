@@ -27,8 +27,11 @@ public class Main {
             pathChecker.checkCorrect();
         } else {
             MazeSolver solver = new RightHandMazeSolver(maze);
+            MazeSolver solver2 = new BFSMazeSolver(maze);
             solver.setStartDirection(Direction.WEST);
             solver.solve();
+            solver2.setStartDirection(Direction.WEST);
+            solver2.solve();
             System.out.println(solver.getFactorizedForm());
         }
 
