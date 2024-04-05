@@ -3,6 +3,7 @@ ca/mcmaster/se2aa4/mazerunner/Configuration.class
 ca/mcmaster/se2aa4/mazerunner/BFSMazeSolver.class
 ca/mcmaster/se2aa4/mazerunner/MazePathChecker.class
 ca/mcmaster/se2aa4/mazerunner/MazeSolver.class
+ca/mcmaster/se2aa4/mazerunner/Benchmark.class
 ca/mcmaster/se2aa4/mazerunner/Direction.class
 ca/mcmaster/se2aa4/mazerunner/MazeImporter.class
 ca/mcmaster/se2aa4/mazerunner/RightHandMazeSolver.class

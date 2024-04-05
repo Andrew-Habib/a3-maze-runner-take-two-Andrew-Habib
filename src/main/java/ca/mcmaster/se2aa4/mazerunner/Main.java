@@ -38,8 +38,19 @@ public class Main {
                     solver.setStartDirection(Direction.WEST);
                     solver.solve();
                     System.out.println(solver.getFactorizedForm());
+                    if (config.baselineGiven()) {
+                        MazeSolver baseline = mapMazeSolvers.get(config.getBaseline());
+                        baseline.setStartDirection(Direction.WEST);
+                        baseline.solve();
+                        Benchmark benchmark = new Benchmark(solver, baseline, new MazeImporter(config.getMazeFile()),
+                                solver.getCanonicalForm(), baseline.getCanonicalForm());
+                        System.out.println("Maze Import Time:" + benchmark.getMazeImportTime());
+                        System.out.println("Method Algorithm Time:" + benchmark.getMethodTime());
+                        System.out.println("Baseline Algorithm Time:" + benchmark.getBaselineTime());
+                        System.out.println("Speedup:" + benchmark.getSpeedUp());
+                    }
                 } catch (NullPointerException e) {
-                    logger.error("/!\\ An error has occured. Please enter a valid Algorithm {righthand, bfs} /!\\");
+                    logger.error("/!\\ An error has occured. Please check Algorithms for -method and -baseline {righthand, bfs} /!\\");
                 }
             }
 

@@ -15,12 +15,16 @@ public class Configuration {
     private String maze_file = "./examples/straight.maz.txt";
     private String path_sequence = "";
     private String method = "bfs";
+    private String baseline = "righthand";
     private boolean path_given = false;
+    private boolean base_given = false;
 
     public String getMazeFile () { return this.maze_file; }
     public String getPathSequence () { return this.path_sequence; }
     public String getMethod () { return this.method; }
-    public boolean pathGiven () { return this.path_given; } 
+    public String getBaseline() { return this.baseline; }
+    public boolean pathGiven () { return this.path_given; }
+    public boolean baselineGiven() { return this.base_given; }
 
     public void processInput(String[] args) {
 
@@ -31,6 +35,7 @@ public class Configuration {
         options.addOption("i", "input", true, "Maze Filename");
         options.addOption("p", "path", true, "Path Sequence");
         options.addOption("m", "method", true, "Method");
+        options.addOption("b", "baseline", true, "Baseline");
 
         CommandLineParser parser = new DefaultParser();
 
@@ -40,17 +45,15 @@ public class Configuration {
             String file = cmd.getOptionValue("i", "./examples/straight.maz.txt");
             String path = cmd.getOptionValue("p", "");
             String method = cmd.getOptionValue("method", "bfs");
+            String baseline = cmd.getOptionValue("baseline", "righthand");
 
+            this.path_given = false;
             this.maze_file = file;
             this.method = method;
-
-
-            if(cmd.hasOption('p')) {
-                this.path_given = true;
-                this.path_sequence = path;
-            } else {
-                this.path_given = false;
-            }    
+            this.path_sequence = path;
+            this.baseline = baseline;
+            this.path_given = cmd.hasOption('p');
+            this.base_given = cmd.hasOption('b');
             
         } catch(Exception e) {
             
