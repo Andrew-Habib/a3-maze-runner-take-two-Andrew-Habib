@@ -5,7 +5,6 @@ import java.util.Queue;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
-
 // Referenced Ideas From SFWRENG 2C03 Slide Set 9 Slide Number 159 for Breadth-First Shortest Path Algorithm on Unweighted graphs by Dr.Hellings
 
 public class BFSMazeSolver implements MazeSolver{

@@ -6,9 +6,13 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.Configurator;
 import org.apache.logging.log4j.Level;
 
+import java.util.Map;
+import java.util.HashMap;
+
 public class Main {
 
     private static final Logger logger = LogManager.getLogger();
+    private final static Map<String, MazeSolver> mapMazeSolvers = new HashMap<>();
     
     public static void main(String[] args) {
 
@@ -20,21 +24,24 @@ public class Main {
         MazeImporter imported_maze = new MazeImporter(config.getMazeFile());
         imported_maze.importMaze();
         Maze maze = imported_maze.getMaze();
-        
-        if (config.pathGiven()) {
-            MazePathChecker pathChecker = new MazePathChecker(maze, config.getPathSequence());
-            pathChecker.processPath();
-            pathChecker.checkCorrect();
-        } else {
-            MazeSolver solver = new RightHandMazeSolver(maze);
-            MazeSolver solver2 = new BFSMazeSolver(maze);
-            solver.setStartDirection(Direction.WEST);
-            solver.solve();
-            solver2.setStartDirection(Direction.WEST);
-            solver2.solve();
-            System.out.println(solver.getFactorizedForm());
-            System.out.println(solver2.getFactorizedForm());
-        }
+
+        mapMazeSolvers.put("righthand", new RightHandMazeSolver(maze));
+        mapMazeSolvers.put("bfs", new BFSMazeSolver(maze));
+
+            if (config.pathGiven()) {
+                MazePathChecker pathChecker = new MazePathChecker(maze, config.getPathSequence());
+                pathChecker.processPath();
+                pathChecker.checkCorrect();
+            } else {
+                try{
+                    MazeSolver solver = mapMazeSolvers.get(config.getMethod());
+                    solver.setStartDirection(Direction.WEST);
+                    solver.solve();
+                    System.out.println(solver.getFactorizedForm());
+                } catch (NullPointerException e) {
+                    logger.error("/!\\ An error has occured. Please enter a valid Algorithm {righthand, bfs} /!\\");
+                }
+            }
 
     }
     
