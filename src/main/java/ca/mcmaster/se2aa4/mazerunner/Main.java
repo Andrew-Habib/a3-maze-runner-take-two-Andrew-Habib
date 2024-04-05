@@ -33,6 +33,7 @@ public class Main {
             solver2.setStartDirection(Direction.WEST);
             solver2.solve();
             System.out.println(solver.getFactorizedForm());
+            System.out.println(solver2.getFactorizedForm());
         }
 
     }

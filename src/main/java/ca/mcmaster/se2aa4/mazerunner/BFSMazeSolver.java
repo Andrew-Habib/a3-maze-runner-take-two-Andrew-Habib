@@ -95,16 +95,58 @@ public class BFSMazeSolver implements MazeSolver{
         int curr_y = end_y;
         while (curr_x != start_x || curr_y != start_y) {
             path.add(new Integer[]{curr_x, curr_y});
-            curr_x = previous[curr_x][curr_y][0];
-            curr_y = previous[curr_x][curr_y][1];
+            Integer[] prev = previous[curr_x][curr_y];
+            curr_x = prev[0];
+            curr_y = prev[1];
         }
         path.add(new Integer[]{start_x, start_y});
         Collections.reverse(path);
+        path.add(new Integer[]{end_x + 1, end_y});
+        this.path = "";
 
         for (Integer[] pos : path) {
-            System.out.println("(" + pos[0] + ", " + pos[1] + ")");
+            int right_x = this.runner.getXLocation();
+            int right_y = this.runner.getYLocation();
+            int forward_x = this.runner.getXLocation();
+            int forward_y = this.runner.getYLocation();
+            int left_x = this.runner.getXLocation();
+            int left_y = this.runner.getYLocation();
+
+            switch (this.runner.getDirection()) {
+                case Direction.EAST:
+                    right_y = this.runner.getYLocation() - 1;
+                    forward_x = this.runner.getXLocation() + 1;
+                    left_y = this.runner.getYLocation() + 1;
+                    break;
+                case Direction.WEST:
+                    right_y = this.runner.getYLocation() + 1;
+                    forward_x = this.runner.getXLocation() - 1;
+                    left_y = this.runner.getYLocation() - 1;
+                    break;
+                case Direction.NORTH:
+                    right_x = this.runner.getXLocation() + 1;
+                    forward_y = this.runner.getYLocation() + 1;
+                    left_x = this.runner.getXLocation() - 1;
+                    break;
+                case Direction.SOUTH:
+                    right_x = this.runner.getXLocation() - 1;
+                    forward_y = this.runner.getYLocation() - 1;
+                    left_x = this.runner.getXLocation() + 1;
+                    break;
+            }
+            if (right_x == pos[0] && right_y == pos[1]) {
+                this.runner.turnRight();
+                this.runner.runForward();
+                this.path = this.path + "RF";
+            } else if (forward_x == pos[0] && forward_y == pos[1]) {
+                this.runner.runForward();
+                this.path = this.path + 'F';
+            } else if (left_x == pos[0] && left_y == pos[1]) {
+                this.runner.turnLeft();
+                this.runner.runForward();
+                this.path = this.path + "LF";
+            }
         }
-        this.path = "";
     }
 
     @Override
@@ -116,6 +158,37 @@ public class BFSMazeSolver implements MazeSolver{
     public String getFactorizedForm() {
 
         String fact_path = "";
+        char before = this.path.charAt(0);
+        int num = 1;
+
+
+        for (int i = 1; i < path.length(); i++) {
+
+            if (this.path.charAt(i) == before && i < this.path.length()) {
+
+                num = num + 1;
+                if (i == this.path.length() - 1) {
+                    fact_path = fact_path + String.valueOf(num) + before;
+                }
+
+            } else {
+
+                if (num > 1) {
+                    fact_path = fact_path + String.valueOf(num);
+                }
+
+                fact_path = fact_path + before + ' ';
+                num = 1;
+                before = path.charAt(i);
+
+                if (i == this.path.length() - 1) {
+                    fact_path = fact_path + before;
+                }
+
+            }
+
+        }
+
         return fact_path;
 
     }
