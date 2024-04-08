@@ -104,35 +104,17 @@ public class BFSMazeSolver implements MazeSolver{
         this.path = "";
 
         for (Integer[] pos : path) {
-            int right_x = this.runner.getXLocation();
-            int right_y = this.runner.getYLocation();
-            int forward_x = this.runner.getXLocation();
-            int forward_y = this.runner.getYLocation();
-            int left_x = this.runner.getXLocation();
-            int left_y = this.runner.getYLocation();
+            Direction currDir = this.runner.getDirection();
+            int currX = this.runner.getXLocation();
+            int currY = this.runner.getYLocation();
 
-            switch (this.runner.getDirection()) {
-                case Direction.EAST:
-                    right_y = this.runner.getYLocation() - 1;
-                    forward_x = this.runner.getXLocation() + 1;
-                    left_y = this.runner.getYLocation() + 1;
-                    break;
-                case Direction.WEST:
-                    right_y = this.runner.getYLocation() + 1;
-                    forward_x = this.runner.getXLocation() - 1;
-                    left_y = this.runner.getYLocation() - 1;
-                    break;
-                case Direction.NORTH:
-                    right_x = this.runner.getXLocation() + 1;
-                    forward_y = this.runner.getYLocation() + 1;
-                    left_x = this.runner.getXLocation() - 1;
-                    break;
-                case Direction.SOUTH:
-                    right_x = this.runner.getXLocation() - 1;
-                    forward_y = this.runner.getYLocation() - 1;
-                    left_x = this.runner.getXLocation() + 1;
-                    break;
-            }
+            int right_x = currX + Direction.getRight(currDir).unitX();
+            int right_y = currY + Direction.getRight(currDir).unitY();
+            int forward_x = currX + currDir.unitX();
+            int forward_y = currY + currDir.unitY();
+            int left_x = currX + Direction.getLeft(currDir).unitX();
+            int left_y = currY + Direction.getLeft(currDir).unitY();
+
             if (right_x == pos[0] && right_y == pos[1]) {
                 this.runner.turnRight();
                 this.runner.runForward();

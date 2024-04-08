@@ -37,6 +37,12 @@ public class Benchmark {
         return decimalFormat.format( endTime - startTime);
     }
     public String getSpeedUp() {
-        return decimalFormat.format((float) this.baselineLen / this.methodLen);
+        float result = 0;
+        try {
+            result = (float) this.baselineLen / this.methodLen;
+        } catch (ArithmeticException e) {
+            System.err.println("Division by 0 Error!");
+        }
+        return decimalFormat.format(result);
     }
 }

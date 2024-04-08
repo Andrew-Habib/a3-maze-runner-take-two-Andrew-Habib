@@ -44,10 +44,10 @@ public class Main {
                         baseline.solve();
                         Benchmark benchmark = new Benchmark(solver, baseline, new MazeImporter(config.getMazeFile()),
                                 solver.getCanonicalForm(), baseline.getCanonicalForm());
-                        System.out.println("Maze Import Time:" + benchmark.getMazeImportTime());
-                        System.out.println("Method Algorithm Time:" + benchmark.getMethodTime());
-                        System.out.println("Baseline Algorithm Time:" + benchmark.getBaselineTime());
-                        System.out.println("Speedup:" + benchmark.getSpeedUp());
+                        System.out.println("Maze Import Time (ms): " + benchmark.getMazeImportTime());
+                        System.out.println("Method Algorithm Time (ms): " + benchmark.getMethodTime());
+                        System.out.println("Baseline Algorithm Time (ms): " + benchmark.getBaselineTime());
+                        System.out.println("Speedup (ms): " + benchmark.getSpeedUp());
                     }
                 } catch (NullPointerException e) {
                     logger.error("/!\\ An error has occured. Please check Algorithms for -method and -baseline {righthand, bfs} /!\\");

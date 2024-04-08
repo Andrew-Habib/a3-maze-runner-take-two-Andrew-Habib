@@ -33,7 +33,7 @@ public class MazeImporter {
             this.mazeBuilder(reader);
 
         } catch(Exception e) {
-            
+
             logger.error("/!\\ An error has occured while importing. Please Check the file exists /!\\");
 
         }

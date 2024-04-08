@@ -48,36 +48,16 @@ public class RightHandMazeSolver implements MazeSolver {
         while (this.runner.getXLocation() >= 0 && this.runner.getYLocation() >= 0 &&
         this.runner.getXLocation() < this.maze.getWidth() - 1 &&
         this.runner.getYLocation() <= this.maze.getHeight() - 1) {
-            
-            int right_x = this.runner.getXLocation();
-            int right_y = this.runner.getYLocation();
-            int forward_x = this.runner.getXLocation();
-            int forward_y = this.runner.getYLocation();
-            int left_x = this.runner.getXLocation();
-            int left_y = this.runner.getYLocation();
+            Direction currDir = this.runner.getDirection();
+            int currX = this.runner.getXLocation();
+            int currY = this.runner.getYLocation();
 
-            switch (this.runner.getDirection()) {
-                case Direction.EAST:
-                    right_y = this.runner.getYLocation() - 1;
-                    forward_x = this.runner.getXLocation() + 1;
-                    left_y = this.runner.getYLocation() + 1;
-                    break;
-                case Direction.WEST:
-                    right_y = this.runner.getYLocation() + 1;
-                    forward_x = this.runner.getXLocation() - 1;
-                    left_y = this.runner.getYLocation() - 1;
-                    break;
-                case Direction.NORTH:
-                    right_x = this.runner.getXLocation() + 1;
-                    forward_y = this.runner.getYLocation() + 1;
-                    left_x = this.runner.getXLocation() - 1;
-                    break;
-                case Direction.SOUTH:
-                    right_x = this.runner.getXLocation() - 1;
-                    forward_y = this.runner.getYLocation() - 1;
-                    left_x = this.runner.getXLocation() + 1;
-                    break;
-            }
+            int right_x = currX + Direction.getRight(currDir).unitX();
+            int right_y = currY + Direction.getRight(currDir).unitY();
+            int forward_x = currX + currDir.unitX();
+            int forward_y = currY + currDir.unitY();
+            int left_x = currX + Direction.getLeft(currDir).unitX();
+            int left_y = currY + Direction.getLeft(currDir).unitY();
 
             if (this.maze.getTileAt(right_x, right_y) == Tile.EMPTY) {
                 this.runner.turnRight();
