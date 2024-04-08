@@ -25,27 +25,11 @@ public class Runner {
     }
 
     public void turnLeft() {
-        if (this.direction == Direction.NORTH) {
-            this.direction = Direction.WEST;
-        } else if (this.direction == Direction.SOUTH) {
-            this.direction = Direction.EAST;
-        } else if (this.direction == Direction.EAST) {
-            this.direction = Direction.NORTH;
-        } else {
-            this.direction = Direction.SOUTH;
-        }
+        this.direction = Direction.getLeft(this.direction);
     }
 
     public void turnRight() {
-        if (this.direction == Direction.NORTH) {
-            this.direction = Direction.EAST;
-        } else if (this.direction == Direction.SOUTH) {
-            this.direction = Direction.WEST;
-        } else if (this.direction == Direction.EAST) {
-            this.direction = Direction.SOUTH;
-        } else {
-            this.direction = Direction.NORTH;
-        }
+        this.direction = Direction.getRight(this.direction);
     }
 
     public void setXLocation(int x) {
