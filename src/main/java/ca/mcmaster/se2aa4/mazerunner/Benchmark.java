@@ -6,8 +6,8 @@ public class Benchmark {
     private MazeImporter maze_importer;
     private MazeSolver method;
     private MazeSolver baseline;
-    private int methodLen = 1;
-    private int baselineLen = 1;
+    private int methodLen;
+    private int baselineLen;
     private final DecimalFormat decimalFormat = new DecimalFormat("0.00");
     public Benchmark(MazeSolver method, MazeSolver baseline, MazeImporter maze_importer, String methodStr, String baselineStr) {
         this.maze_importer = maze_importer;
@@ -24,14 +24,14 @@ public class Benchmark {
     }
     public String getMethodTime() {
         long startTime = System.currentTimeMillis();
-        this.method.setStartDirection(Direction.WEST);
+        this.method.initialize(Direction.WEST);
         this.method.solve();
         long endTime = System.currentTimeMillis();
         return decimalFormat.format( endTime - startTime);
     }
     public String getBaselineTime() {
         long startTime = System.currentTimeMillis();
-        this.baseline.setStartDirection(Direction.WEST);
+        this.baseline.initialize(Direction.WEST);
         this.baseline.solve();
         long endTime = System.currentTimeMillis();
         return decimalFormat.format( endTime - startTime);

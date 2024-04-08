@@ -19,12 +19,24 @@ public class Configuration {
     private boolean path_given = false;
     private boolean base_given = false;
 
-    public String getMazeFile () { return this.maze_file; }
-    public String getPathSequence () { return this.path_sequence; }
-    public String getMethod () { return this.method; }
-    public String getBaseline() { return this.baseline; }
-    public boolean pathGiven () { return this.path_given; }
-    public boolean baselineGiven() { return this.base_given; }
+    public String getMazeFile () {
+        return this.maze_file;
+    }
+    public String getPathSequence () {
+        return this.path_sequence;
+    }
+    public String getMethod () {
+        return this.method;
+    }
+    public String getBaseline() {
+        return this.baseline;
+    }
+    public boolean pathGiven () {
+        return this.path_given;
+    }
+    public boolean baselineGiven() {
+        return this.base_given;
+    }
 
     public void processInput(String[] args) {
 

@@ -13,29 +13,9 @@ public class RightHandMazeSolver implements MazeSolver {
     }
 
     @Override
-    public void setStartDirection(Direction dir) {
-
-        switch(dir) {
-            case Direction.WEST:
-                for (int row = 0; row < this.maze.getHeight() - 1; row++) {
-                    if (this.maze.getTileAt(0, row) == Tile.EMPTY) {
-                        this.runner.setXLocation(0);
-                        this.runner.setYLocation(row);
-                        this.runner.setDirection(Direction.EAST);
-                    }
-                }
-                break;
-            case Direction.EAST:
-                for (int row = 0; row < this.maze.getHeight() - 1; row++) {
-                    if (this.maze.getTileAt(this.maze.getWidth() - 1, row) == Tile.EMPTY) {
-                        this.runner.setXLocation(this.maze.getWidth() - 1);
-                        this.runner.setYLocation(row);
-                        this.runner.setDirection(Direction.WEST);
-                    }
-                }
-                break;
-        }
-        
+    public void initialize(Direction dir) {
+        SolverInitialize dirSet = new SolverInitialize(this.maze, this.runner);
+        dirSet.setStart(Direction.WEST);
     }
 
     @Override
@@ -88,41 +68,7 @@ public class RightHandMazeSolver implements MazeSolver {
 
     @Override
     public String getFactorizedForm() {
-
-        String fact_path = "";
-        char before = this.path.charAt(0);
-        int num = 1;
-
-
-        for (int i = 1; i < path.length(); i++) {
-
-            if (this.path.charAt(i) == before && i < this.path.length()) {
-                
-                num = num + 1;
-                if (i == this.path.length() - 1) {
-                    fact_path = fact_path + String.valueOf(num) + before;
-                }
-
-            } else {
-
-                if (num > 1) {
-                    fact_path = fact_path + String.valueOf(num);
-                }
-
-                fact_path = fact_path + before + ' ';
-                num = 1;
-                before = path.charAt(i);
-
-                if (i == this.path.length() - 1) {
-                    fact_path = fact_path + before;
-                }
-
-            } 
-
-        } 
-
-        return fact_path;
-
+        return FactorizedConverter.canonicalToFactorized(this.path);
     }
 
 }
