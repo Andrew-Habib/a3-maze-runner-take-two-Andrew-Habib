@@ -80,10 +80,8 @@ The delivered program at the end of this assignment should use the following fla
 
 - `-i MAZE_FILE`: specifies the filename to be used;
 - `-p PATH_SEQUENCE`: activates the path verification mode to validate that PATH_SEQUENCE is correct for the maze
-
-If you are also delivering the bonus, your program will react to a third flag:
-
-- `-method {tremaux, righthand}`: specifies which path computation method to use. (default is right hand)
+- `-method {bfs, righthand}`: specifies which path computation method to use. (default is Breadth-First Search)
+- `-baseline {bfs, righthand}`: specifies which path computation method to benchmark and compare performance to the selected method for maze solving. (default is right hand)
 
 #### Examples
 
@@ -109,4 +107,30 @@ If a given path is incorrect, the program prints the message `incorrect path` on
 mosser@azrael A1-Template % java -jar target/mazerunner.jar -i ./examples/straight.maz.txt -p 3F
 inccorrect path
 mosser@azrael A1-Template %
+```
+
+If a method is entered (Either with 'm' or 'method') followed by the name of name of the algorithm used {bfs, righthand}, the program prints the computed path with the given algorithm.
+
+```
+drew@Drew:/mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib$ java -jar target/mazerunner.jar -i ./examples/tiny.maz.txt -method bfs
+3F L 4F R 3F
+drew@Drew:/mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib$ java -jar target/mazerunner.jar -i ./examples/tiny.maz.txt -m righthand
+5F 2L 2F R 2F R 2F 2L 2F R 2F R 3F
+drew@Drew:/mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib$ 
+```
+
+If a baseline option is entered (Either with 'b' or 'baseline') followed by the name of the algorithm used {bfs, righthand}, the program runs in benchmark mode and outputs the computed path along with:
+- Maze Import time (ms)
+- Time it takes the given method to solve the maze (ms)
+- Time it takes the baseline algorithm to solve the maze (ms)
+- The speedup or improvement of the path (ms)
+
+```
+drew@Drew:/mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib$ java -jar target/mazerunner.jar -i ./examples/giant.maz.txt -method bfs -baseline righthand    
+F L 2F R 2F L 6F R 2F L 6F R 2F R 2F L 2F R 2F L 2F R 8F L 4F R 4F L 6F R 2F L 4F R 2F L 2F R 4F L 4F R 2F L 18F R 4F L 4F R 2F L 2F R 2F L 4F R 4F L 2F R 2F L 2F L 2F R 4F L 2F R 4F L 2F R 10F L 6F R 2F L 2F R 6F L 2F R 2F R 4F L 2F R 2F L 14F R 4F L 4F R 2F L 2F R 8F L 10F R 2F L 4F R 2F L 6F R 2F L 4F R 2F L 6F L 2F R 2F L 4F R 5F
+Maze Import Time (ms): 3.00
+Method Algorithm Time (ms): 12.00
+Baseline Algorithm Time (ms): 42.00
+Speedup: 75.88
+drew@Drew:/mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib$
 ```
