@@ -1,5 +1,10 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Configurator;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,8 +16,12 @@ class BFSMazeSolverTest {
     private Maze direct;
     private Maze small;
     private Runner runner;
+    private static final Logger logger = LogManager.getLogger();
     @BeforeEach
     void initialize(){
+        Configurator.setAllLevels(LogManager.getRootLogger().getName(), Level.ERROR);
+        logger.info("Execution Begins");
+
         String straight_text = "./examples/straight.maz.txt";
         String tiny_text = "./examples/tiny.maz.txt";
         String direct_text = "./examples/direct.maz.txt";
@@ -34,10 +43,31 @@ class BFSMazeSolverTest {
         runner = new Runner(0, 0, Direction.WEST);
     }
     @Test
-    void getCanonicalForm() {
+    void solverStraightBFS() {
         BFSMazeSolver solverStraight = new BFSMazeSolver(straight);
         solverStraight.initialize(Direction.WEST);
         solverStraight.solve();
         assertEquals("4F", solverStraight.getFactorizedForm());
+    }
+    @Test
+    void solverTinyBFS() {
+        BFSMazeSolver solverTiny = new BFSMazeSolver(tiny);
+        solverTiny.initialize(Direction.WEST);
+        solverTiny.solve();
+        assertEquals("3F L 4F R 3F", solverTiny.getFactorizedForm());
+    }
+    @Test
+    void solverDirectBFS() {
+        BFSMazeSolver solverDirect = new BFSMazeSolver(direct);
+        solverDirect.initialize(Direction.WEST);
+        solverDirect.solve();
+        assertEquals("F R 2F L 4F R 2F L 2F", solverDirect.getFactorizedForm());
+    }
+    @Test
+    void solverSmallBFS() {
+        BFSMazeSolver solverSmall = new BFSMazeSolver(small);
+        solverSmall.initialize(Direction.WEST);
+        solverSmall.solve();
+        assertEquals("F L F R 2F L 6F R 4F R 2F L 2F R 2F L F", solverSmall.getFactorizedForm());
     }
 }

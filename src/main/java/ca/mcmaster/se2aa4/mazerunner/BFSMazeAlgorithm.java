@@ -11,8 +11,8 @@ public class BFSMazeAlgorithm {
     public BFSMazeAlgorithm(Maze maze, Runner runner) {
         this.maze = maze;
         this.runner = runner;
-        pathLengths = new Integer[this.maze.getHeight()][this.maze.getWidth()];
-        previous = new Integer[this.maze.getHeight()][this.maze.getWidth()][2];
+        pathLengths = new Integer[this.maze.getWidth()][this.maze.getHeight()];
+        previous = new Integer[this.maze.getWidth()][this.maze.getHeight()][2];
     }
     public Integer[][] getPathLengths() {
         return this.pathLengths;
@@ -30,12 +30,11 @@ public class BFSMazeAlgorithm {
         pathLengths[runner_x][runner_y] = 0;
         previous[runner_x][runner_y] = new Integer[]{runner_x, runner_y};
         mapNodeQueue.add(new Integer[]{runner_x, runner_y});
-
+        
         while (!mapNodeQueue.isEmpty()) {
             Integer[] currPos = mapNodeQueue.remove();
             Integer[][] edges = new Integer[][]{{currPos[0] - 1, currPos[1]},
                     {currPos[0] + 1, currPos[1]}, {currPos[0], currPos[1] - 1}, {currPos[0], currPos[1] + 1}};
-
             for (Integer[] dir : edges) {
                 if (dir[0] >= 0 && dir[1] >= 0 && dir[0] <= this.maze.getWidth() - 1 && dir[1] <= this.maze.getHeight() - 1
                         && this.maze.getTileAt(dir[0], dir[1]) == Tile.EMPTY) {
