@@ -2,7 +2,10 @@ package ca.mcmaster.se2aa4.mazerunner;
 
 import java.util.ArrayList;
 
-// Referenced Ideas From SFWRENG 2C03 Slide Set 9 Slide Number 159 for Breadth-First Shortest Path Algorithm on Unweighted graphs by Dr.Hellings
+/*
+Referenced Ideas From SFWRENG 2C03 Slide Set 9 Slide Number 159 for Breadth-First Shortest Path Algorithm
+on Unweighted graphs along with Slide Set 10 Number 226 for condition and path and cost storing by Dr.Hellings
+ */
 
 public class BFSMazeSolver implements MazeSolver{
     private Maze maze;

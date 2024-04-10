@@ -17,24 +17,24 @@ public class Benchmark {
         this.baselineLen = baselineStr.length();
     }
     public String getMazeImportTime() {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         this.maze_importer.importMaze();
-        long endTime = System.currentTimeMillis();
-        return decimalFormat.format( endTime - startTime);
+        long endTime = System.nanoTime();
+        return decimalFormat.format( (double)(endTime - startTime) / 1000000);
     }
     public String getMethodTime() {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         this.method.initialize(Direction.WEST);
         this.method.solve();
-        long endTime = System.currentTimeMillis();
-        return decimalFormat.format( endTime - startTime);
+        long endTime = System.nanoTime();
+        return decimalFormat.format( (double)(endTime - startTime) / 1000000);
     }
     public String getBaselineTime() {
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         this.baseline.initialize(Direction.WEST);
         this.baseline.solve();
-        long endTime = System.currentTimeMillis();
-        return decimalFormat.format( endTime - startTime);
+        long endTime = System.nanoTime();
+        return decimalFormat.format( (double)(endTime - startTime) / 1000000);
     }
     public String getSpeedUp() {
         float result = 0;
