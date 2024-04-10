@@ -5,12 +5,16 @@ ca/mcmaster/se2aa4/mazerunner/BFSMazeSolver.class
 ca/mcmaster/se2aa4/mazerunner/MazePathChecker.class
 ca/mcmaster/se2aa4/mazerunner/FactorizedConverter.class
 ca/mcmaster/se2aa4/mazerunner/MazeSolver.class
+ca/mcmaster/se2aa4/mazerunner/EventManagerContext.class
 ca/mcmaster/se2aa4/mazerunner/Benchmark.class
 ca/mcmaster/se2aa4/mazerunner/Direction.class
 ca/mcmaster/se2aa4/mazerunner/MazeImporter.class
 ca/mcmaster/se2aa4/mazerunner/RightHandMazeSolver.class
 ca/mcmaster/se2aa4/mazerunner/Runner.class
+ca/mcmaster/se2aa4/mazerunner/StateCheckPath.class
+ca/mcmaster/se2aa4/mazerunner/State.class
 ca/mcmaster/se2aa4/mazerunner/TraversePath.class
+ca/mcmaster/se2aa4/mazerunner/StateSolve.class
 ca/mcmaster/se2aa4/mazerunner/Maze.class
 ca/mcmaster/se2aa4/mazerunner/SolverInitialize$1.class
 ca/mcmaster/se2aa4/mazerunner/SolverInitialize.class

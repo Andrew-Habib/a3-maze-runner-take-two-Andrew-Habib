@@ -54,16 +54,12 @@ public class Configuration {
         try {
 
             CommandLine cmd = parser.parse(options, args);
-            String file = cmd.getOptionValue("i", "./examples/straight.maz.txt");
-            String path = cmd.getOptionValue("p", "");
-            String method = cmd.getOptionValue("method", "bfs");
-            String baseline = cmd.getOptionValue("baseline", "righthand");
+            this.maze_file = cmd.getOptionValue("i", "./examples/straight.maz.txt");
+            this.path_sequence = cmd.getOptionValue("p", "");
+            this.method = cmd.getOptionValue("method", "bfs");
+            this.baseline = cmd.getOptionValue("baseline", "righthand");
 
             this.path_given = false;
-            this.maze_file = file;
-            this.method = method;
-            this.path_sequence = path;
-            this.baseline = baseline;
             this.path_given = cmd.hasOption('p');
             this.base_given = cmd.hasOption('b');
             
