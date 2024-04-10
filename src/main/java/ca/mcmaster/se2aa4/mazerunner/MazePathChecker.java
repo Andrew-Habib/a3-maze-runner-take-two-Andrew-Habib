@@ -1,6 +1,6 @@
 package ca.mcmaster.se2aa4.mazerunner;
 
-public class MazePathChecker {
+public class MazePathChecker implements MazeChecker{
 
     private Maze maze;
     private String path_sequence;
@@ -18,6 +18,7 @@ public class MazePathChecker {
         
     }
 
+    @Override
     public void processPath() {
 
         int num = 0;
@@ -56,6 +57,11 @@ public class MazePathChecker {
                 num = 0;
             }
         }
+    }
+
+    @Override
+    public boolean isCorrect() {
+        return (this.runner.getXLocation() == this.maze.getWidth() - 1);
     }
 
     public void checkCorrect() {

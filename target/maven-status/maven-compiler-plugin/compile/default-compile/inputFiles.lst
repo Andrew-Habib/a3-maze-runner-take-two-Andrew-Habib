@@ -15,6 +15,7 @@
 /mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib/src/main/java/ca/mcmaster/se2aa4/mazerunner/Tile.java
 /mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib/src/main/java/ca/mcmaster/se2aa4/mazerunner/StateCheckPath.java
 /mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib/src/main/java/ca/mcmaster/se2aa4/mazerunner/EventManagerContext.java
+/mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib/src/main/java/ca/mcmaster/se2aa4/mazerunner/MazeChecker.java
 /mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib/src/main/java/ca/mcmaster/se2aa4/mazerunner/BFSMazeAlgorithm.java
 /mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib/src/main/java/ca/mcmaster/se2aa4/mazerunner/MazeImporter.java
 /mnt/c/Andrew/McMaster/SFWRENG 2AA4/a3-maze-runner-take-two-Andrew-Habib/src/main/java/ca/mcmaster/se2aa4/mazerunner/RightHandMazeSolver.java

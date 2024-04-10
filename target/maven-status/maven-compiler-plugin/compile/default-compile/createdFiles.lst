@@ -18,4 +18,5 @@ ca/mcmaster/se2aa4/mazerunner/StateSolve.class
 ca/mcmaster/se2aa4/mazerunner/Maze.class
 ca/mcmaster/se2aa4/mazerunner/SolverInitialize$1.class
 ca/mcmaster/se2aa4/mazerunner/SolverInitialize.class
+ca/mcmaster/se2aa4/mazerunner/MazeChecker.class
 ca/mcmaster/se2aa4/mazerunner/Main.class
