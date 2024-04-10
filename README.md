@@ -6,7 +6,7 @@
   * **Course code**: SFWRENG 2AA4
   * **Course Title**: Software Design I - Introduction to Software Development 
   * Term: *Level II - Winter 2024*
-  * References: Dr. Hellings - Implementation of BFS Algorithm used in this project is inspired by SFWRENG 2C03 Slide Set 9 Slide Number 159 for Breadth-First Shortest Path Algorithm on Unweighted graphs along with Slide Set 10 Number 226 for condition and path and cost storing.
+  * References: Dr. Hellings - Implementation of BFS Algorithm used in this project (BFSMazeAlgorithm Abstraction - solve() method) is inspired by SFWRENG 2C03 Slide Set 9 Slide Number 159 for Breadth-First Shortest Path Algorithm on Unweighted graphs along with Slide Set 10 Number 226 for condition and path and cost storing.
 
 ## Business Logic Specification
 
